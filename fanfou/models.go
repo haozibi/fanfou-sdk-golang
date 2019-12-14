@@ -90,7 +90,7 @@ type DirectMessages struct {
 
 var (
 	allowParams = map[string][]string{
-		"search/public_timeline.json": []string{
+		"search/public_timeline.json": {
 			"q",
 			"since_id",
 			"max_id",
@@ -99,7 +99,7 @@ var (
 			"format",
 			"callback",
 		},
-		"search/users.json": []string{
+		"search/users.json": {
 			"q",
 			"count",
 			"page",
@@ -107,7 +107,7 @@ var (
 			"format",
 			"callback",
 		},
-		"search/user_timeline.json": []string{
+		"search/user_timeline.json": {
 			"q",
 			"id",
 			"since_id",
@@ -117,26 +117,26 @@ var (
 			"format",
 			"callback",
 		},
-		"blocks/blocking.json": []string{
+		"blocks/blocking.json": {
 			"mode",
 			"page",
 			"count",
 		},
-		"blocks/create.json": []string{
+		"blocks/create.json": {
 			"id",
 			"mode",
 			"format",
 			"callback",
 		},
-		"blocks/exists.json": []string{
+		"blocks/exists.json": {
 			"id",
 			"mode",
 		},
-		"blocks/destroy.json": []string{
+		"blocks/destroy.json": {
 			"id",
 			"mode",
 		},
-		"users/tagged.json": []string{
+		"users/tagged.json": {
 			"tag",
 			"count",
 			"page",
@@ -144,38 +144,17 @@ var (
 			"format",
 			"callback",
 		},
-		"users/show.json": []string{
+		"users/show.json": {
 			"id",
 			"mode",
 			"format",
 			"callback",
 		},
-		"users/tag_list.json": []string{
+		"users/tag_list.json": {
 			"id",
 			"callback",
 		},
-		"users/followers.json": []string{
-			"id",
-			"count",
-			"page",
-			"mode",
-			"format",
-			"callback",
-		},
-		"2/users/recommendation.json": []string{
-			"count",
-			"page",
-			"mode",
-			"format",
-			"callback",
-		},
-		"/2/users/cancel_recommendation.json": []string{
-			"id",
-			"mode",
-			"format",
-			"callback",
-		},
-		"users/friends.json": []string{
+		"users/followers.json": {
 			"id",
 			"count",
 			"page",
@@ -183,20 +162,41 @@ var (
 			"format",
 			"callback",
 		},
-		"account/verify_credentials.json": []string{
+		"2/users/recommendation.json": {
+			"count",
+			"page",
 			"mode",
 			"format",
 			"callback",
 		},
-		"account/update_profile_image.json": []string{
+		"/2/users/cancel_recommendation.json": {
+			"id",
 			"mode",
 			"format",
 			"callback",
 		},
-		"account/rate_limit_status.json": []string{
+		"users/friends.json": {
+			"id",
+			"count",
+			"page",
+			"mode",
+			"format",
 			"callback",
 		},
-		"account/update_profile.json": []string{
+		"account/verify_credentials.json": {
+			"mode",
+			"format",
+			"callback",
+		},
+		"account/update_profile_image.json": {
+			"mode",
+			"format",
+			"callback",
+		},
+		"account/rate_limit_status.json": {
+			"callback",
+		},
+		"account/update_profile.json": {
 			"url",
 			"mode",
 			"callback",
@@ -205,25 +205,25 @@ var (
 			"name",
 			"email",
 		},
-		"account/update_notify_num.json": []string{
+		"account/update_notify_num.json": {
 			"notify_num",
 		},
-		"saved_searches/create.json": []string{
+		"saved_searches/create.json": {
 			"query",
 			"callback",
 		},
-		"saved_searches/destroy.json": []string{
+		"saved_searches/destroy.json": {
 			"id",
 			"callback",
 		},
-		"saved_searches/show.json": []string{
+		"saved_searches/show.json": {
 			"id",
 			"callback",
 		},
-		"saved_searches/list.json": []string{
+		"saved_searches/list.json": {
 			"callback",
 		},
-		"photos/user_timeline.json": []string{
+		"photos/user_timeline.json": {
 			"id",
 			"since_id",
 			"max_id",
@@ -233,7 +233,7 @@ var (
 			"format",
 			"callback",
 		},
-		"photos/upload.json": []string{
+		"photos/upload.json": {
 			"status",
 			"source",
 			"location",
@@ -241,86 +241,86 @@ var (
 			"format",
 			"callback",
 		},
-		"trends/list.json": []string{
+		"trends/list.json": {
 			"callback",
 		},
-		"followers/ids.json": []string{
+		"followers/ids.json": {
 			"id",
 			"page",
 			"count",
 			"callback",
 		},
-		"favorites/destroy/": []string{
+		"favorites/destroy/": {
 			"mode",
 			"format",
 			"callback",
 		},
-		"favorites/": []string{
+		"favorites/": {
 			"id",
-			"page",
-			"count",
-			"mode",
-			"format",
-			"callback",
-		},
-		"favorites/create/": []string{
-			"id",
-			"mode",
-			"format",
-			"callback",
-		},
-		"friendships/create.json": []string{
-			"id",
-			"mode",
-		},
-		"friendships/destroy.json": []string{
-			"id",
-			"mode",
-			"format",
-			"callback",
-		},
-		"friendships/requests.json": []string{
 			"page",
 			"count",
 			"mode",
 			"format",
 			"callback",
 		},
-		"friendships/deny.json": []string{
+		"favorites/create/": {
 			"id",
 			"mode",
 			"format",
 			"callback",
 		},
-		"friendships/exists.json": []string{
+		"friendships/create.json": {
+			"id",
+			"mode",
+		},
+		"friendships/destroy.json": {
+			"id",
+			"mode",
+			"format",
+			"callback",
+		},
+		"friendships/requests.json": {
+			"page",
+			"count",
+			"mode",
+			"format",
+			"callback",
+		},
+		"friendships/deny.json": {
+			"id",
+			"mode",
+			"format",
+			"callback",
+		},
+		"friendships/exists.json": {
 			"user_a",
 			"user_b",
 		},
-		"friendships/accept.json": []string{
+		"friendships/accept.json": {
 			"id",
 			"mode",
 			"format",
 			"callback",
 		},
-		"friendships/show.json": []string{
+		"friendships/show.json": {
 			"source_login_name",
 			"source_id",
 			"target_login_name",
 			"target_id",
 		},
-		"friends/ids.json": []string{
+		"friends/ids.json": {
 			"id",
 			"page",
 			"count",
 			"callback",
 		},
-		"statuses/destroy.json": []string{
+		"statuses/destroy.json": {
 			"id",
 			"mode",
 			"format",
 			"callback",
 		},
-		"statuses/home_timeline.json": []string{
+		"statuses/home_timeline.json": {
 			"id",
 			"since_id",
 			"max_id",
@@ -330,7 +330,7 @@ var (
 			"format",
 			"callback",
 		},
-		"statuses/public_timeline.json": []string{
+		"statuses/public_timeline.json": {
 			"count",
 			"since_id",
 			"max_id",
@@ -338,7 +338,7 @@ var (
 			"format",
 			"callback",
 		},
-		"statuses/replies.json": []string{
+		"statuses/replies.json": {
 			"since_id",
 			"max_id",
 			"count",
@@ -347,7 +347,7 @@ var (
 			"format",
 			"callback",
 		},
-		"statuses/followers.json": []string{
+		"statuses/followers.json": {
 			"id",
 			"count",
 			"page",
@@ -355,7 +355,7 @@ var (
 			"format",
 			"callback",
 		},
-		"statuses/update.json": []string{
+		"statuses/update.json": {
 			"status",
 			"in_reply_to_status_id",
 			"in_reply_to_user_id",
@@ -366,7 +366,7 @@ var (
 			"location",
 			"callback",
 		},
-		"statuses/user_timeline.json": []string{
+		"statuses/user_timeline.json": {
 			"id",
 			"since_id",
 			"max_id",
@@ -376,20 +376,20 @@ var (
 			"format",
 			"callback",
 		},
-		"statuses/friends.json": []string{
+		"statuses/friends.json": {
 			"id",
 			"count",
 			"page",
 			"mode",
 			"callback",
 		},
-		"statuses/context_timeline.json": []string{
+		"statuses/context_timeline.json": {
 			"id",
 			"mode",
 			"format",
 			"callback",
 		},
-		"statuses/mentions.json": []string{
+		"statuses/mentions.json": {
 			"since_id",
 			"max_id",
 			"count",
@@ -398,17 +398,17 @@ var (
 			"format",
 			"callback",
 		},
-		"statuses/show.json": []string{
+		"statuses/show.json": {
 			"id",
 			"mode",
 			"format",
 			"callback",
 		},
-		"direct_messages/destroy.json": []string{
+		"direct_messages/destroy.json": {
 			"id",
 			"callback",
 		},
-		"direct_messages/conversation.json": []string{
+		"direct_messages/conversation.json": {
 			"id",
 			"count",
 			"page",
@@ -417,20 +417,20 @@ var (
 			"mode",
 			"callback",
 		},
-		"direct_messages/new.json": []string{
+		"direct_messages/new.json": {
 			"user",
 			"text",
 			"in_reply_to_id",
 			"mode",
 			"callback",
 		},
-		"direct_messages/conversation_list.json": []string{
+		"direct_messages/conversation_list.json": {
 			"count",
 			"page",
 			"mode",
 			"callback",
 		},
-		"direct_messages/inbox.json": []string{
+		"direct_messages/inbox.json": {
 			"count",
 			"page",
 			"since_id",
@@ -438,7 +438,7 @@ var (
 			"mode",
 			"callback",
 		},
-		"direct_messages/sent.json": []string{
+		"direct_messages/sent.json": {
 			"count",
 			"page",
 			"since_id",

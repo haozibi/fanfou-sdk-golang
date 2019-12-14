@@ -93,6 +93,7 @@ func (d *DirectMessagesService) New(ctx context.Context, id, text string, opts .
 	return output, req.send(d.client)
 }
 
+// DirectMessagesConversationListOutput DirectMessagesConversationListOutput
 type DirectMessagesConversationListOutput struct {
 	OtherID string          `json:"otherid"`
 	MsgNum  int             `json:"msg_num"`

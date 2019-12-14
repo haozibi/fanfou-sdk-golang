@@ -74,7 +74,7 @@ func NewFanFouWithClient(consumerkey, consumerSecret string, client *http.Client
 		debug:          utils.IsDebug(),
 		consumerkey:    consumerkey,
 		consumerSecret: consumerSecret,
-		client:         client,
+		client:         nil, // must init by OAuth
 		oauth: oauth.NewOAuthWithClient(
 			consumerkey,
 			consumerSecret,
@@ -104,10 +104,6 @@ func (f *Fanfou) initService() {
 	f.FriendsService = NewFriendsService(f.client, f.debug)
 	f.StatusesService = NewStatusesService(f.client, f.debug)
 	f.DirectMessagesService = NewDirectMessagesService(f.client, f.debug)
-}
-
-func (f *Fanfou) initOAuthConsumer() {
-
 }
 
 // RequestToken 获取未授权的Request Token
@@ -258,6 +254,10 @@ func (r *request) send(c *http.Client) error {
 
 	if c == nil {
 		return errors.WithStack(fmt.Errorf("miss http client"))
+	}
+
+	if r.Context == nil {
+		return errors.WithStack(fmt.Errorf("miss context.Context"))
 	}
 
 	cleanList := cleanOption(r.Input, r.HTTPPath)

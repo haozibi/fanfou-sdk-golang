@@ -55,6 +55,9 @@ func main() {
 		Token:  token.Token,
 		Secret: token.Secret,
 	}, verificationCode, nil)
+	if err != nil {
+		log.Fatalln(err)
+	}
 
 	f.OAuth(accessToken)
 

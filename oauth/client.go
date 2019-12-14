@@ -11,6 +11,7 @@ import (
 	"github.com/pkg/errors"
 )
 
+// RoundTripper Custom RoundTripper
 type RoundTripper struct {
 	debug bool
 	oauth *OAuth

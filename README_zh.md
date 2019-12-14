@@ -2,7 +2,7 @@
 
 ![logo](logo.png)
 
-[![GoDoc](https://godoc.org/github.com/haozibi/fanfou-sdk-golang?status.svg)](https://godoc.org/github.com/haozibi/fanfou-sdk-golang) [![pkg.go.dev](https://img.shields.io/badge/pkg.go.dev-haozibi%2Ffanfou--sdk--golang-blue)](https://pkg.go.dev/github.com/haozibi/fanfou-sdk-golang) [![](https://img.shields.io/github/license/haozibi/fanfou-sdk-golang)](https://github.com/haozibi/fanfou-sdk-golang/LICENSE) 
+[![CircleCI](https://circleci.com/gh/haozibi/fanfou-sdk-golang.svg?style=svg)](https://circleci.com/gh/haozibi/fanfou-sdk-golang) [![Coverage Status](https://coveralls.io/repos/github/haozibi/fanfou-sdk-golang/badge.svg)](https://coveralls.io/github/haozibi/fanfou-sdk-golang) [![GoDoc](https://godoc.org/github.com/haozibi/fanfou-sdk-golang?status.svg)](https://godoc.org/github.com/haozibi/fanfou-sdk-golang) [![pkg.go.dev](https://img.shields.io/badge/pkg.go.dev-haozibi%2Ffanfou--sdk--golang-blue)](https://pkg.go.dev/github.com/haozibi/fanfou-sdk-golang) [![Go Report Card](https://goreportcard.com/badge/github.com/haozibi/fanfou-sdk-golang)](https://goreportcard.com/report/github.com/haozibi/fanfou-sdk-golang) [![](https://img.shields.io/github/license/haozibi/fanfou-sdk-golang)](https://github.com/haozibi/fanfou-sdk-golang/LICENSE)
 
 Fanfou SDK for Golang
 

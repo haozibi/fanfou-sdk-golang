@@ -16,7 +16,11 @@ func ShowInfomation(name string, info ...interface{}) {
 	fmt.Println("")
 }
 
+const (
+	debugFlag = "FANFOU_SDK_DEBUG"
+)
+
 // IsDebug check debug mode
 func IsDebug() bool {
-	return strings.ToLower(os.Getenv("FANFOU_SDK_DEBUG")) == "true"
+	return strings.ToLower(os.Getenv(debugFlag)) == "true"
 }

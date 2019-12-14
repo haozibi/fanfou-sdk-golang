@@ -1,0 +1,25 @@
+version: 2
+jobs:
+  test:
+    docker:
+      - image: circleci/golang:latest
+    working_directory: /go/src/github.com/haozibi/fanfou-sdk-golang
+    steps:
+      - checkout
+      - run:
+          name: Test Commands
+          command: |
+            go get golang.org/x/tools/cmd/cover
+            go get github.com/mattn/goveralls
+            go test -v -covermode=count -coverprofile=coverage.out ./...
+            go tool cover -func=coverage.out | tail -1 | awk '{print $3}'
+      - run:
+          name: Upload Cover
+          command: |
+            $(go env GOPATH | awk 'BEGIN{FS=":"} {print $1}')/bin/goveralls -coverprofile=coverage.out -service=circle-ci -repotoken $COVERALLS_TOKEN
+
+workflows:
+  version: 2
+  main:
+    jobs:
+      - test

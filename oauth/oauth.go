@@ -39,6 +39,7 @@ const (
 	VERSION_PARAM          = "oauth_version"
 )
 
+// OAuth OAuth
 type OAuth struct {
 	debug          bool
 	consumerKey    string
@@ -49,6 +50,7 @@ type OAuth struct {
 	client          *http.Client
 }
 
+// ServiceProvider ServiceProvider
 type ServiceProvider struct {
 	RequestTokenURL   string
 	AuthorizeTokenURL string
